@@ -57,43 +57,47 @@ class CompanyController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * in the case, it is the new company that is added by the user
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+        {
 
-        $this->validate($request, [
-          'company_name' => ['required','string','min:3'],
-          'company_email' => ['required','email','min:3'],
-          'company_country' => ['required','string','min:3']
-        ]);
+            $this->validate($request, [
+              'company_name' => ['required','string','min:3'],
+              'company_email' => ['required','email','min:3'],
+              'company_country' => ['required','string','min:3']
+            ]);
 
+            // checks is a companmy with the sent name was been registered  by the user
+            $company = Company::where(['user_id'=>Auth::user()->id,
+                 'company_name'=>$request->company_name
+            ])->count('company_name');
 
-        $company = Company::where(['user_id'=>Auth::user()->id,
-             'company_name'=>$request->company_name
-        ])->count('company_name');
+            // returns false it the company already exists as part of the user company
+            if($company >0){
+                return response()
+                    ->json(['status'=>false,'message'=>"company already registered by user"]);
+            }
 
-        if($company >0){
+             // gets the details of the logged in user
+              $user = User::find($request->user()->id);
+
+            // adds the new user to the user companies
+                  $user->company()->create([
+                    'company_name' => $request->company_name,
+                    'email' => $request->company_email,
+                    'country' => $request->company_country
+                 ]);
+
             return response()
-                ->json(['status'=>false,'message'=>"company already registered by user"]);
+                ->json(['status'=>true,
+                        'message'=>"company was added successful",
+                         'user_info'=>User::where('id',Auth::user()->id)->with('company')->first()]);
+
         }
-
-          $user = User::find($request->user()->id);
-
-          $user->company()->create([
-                'company_name' => $request->company_name,
-                'email' => $request->company_email,
-                'country' => $request->company_country
-             ]);
-
-        return response()
-            ->json(['status'=>true,
-                    'message'=>"company was added successful",
-                     'user_info'=>User::where('id',Auth::user()->id)->with('company')->first()]);
-
-    }
 
     /**
      * Display the specified resource.
@@ -118,11 +122,12 @@ class CompanyController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update an exisiting company details
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -154,7 +159,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove a registered company.
      *
      * @param Request $request
      * @return \Illuminate\Http\Response

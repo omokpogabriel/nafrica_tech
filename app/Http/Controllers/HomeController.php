@@ -21,7 +21,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard after login.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -32,13 +32,22 @@ class HomeController extends Controller
     }
 
 
-
+    /**
+     * Takes the user to the update profile page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function show()
     {
         $user = User::where('id',Auth::user()->id)->select('name','mobile','country')->first();
         return view('profileUpdate')->with(['user_info'=>$user]);
     }
 
+    /**
+     * accepts user request to update profile information
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function update(Request $request)
     {
         $this->validate($request, [
