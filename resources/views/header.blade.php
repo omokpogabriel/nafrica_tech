@@ -24,7 +24,7 @@
 <div id="app" class="main-container">
     <nav>
         <div class="inner-nav">
-            <a href="/" class="nav-brand">
+            <a href="/home" class="nav-brand">
                 <img src="{{asset('/img/nafrica_logo_white.png')}}" alt="">
             </a>
             <div class="nav-bar">
