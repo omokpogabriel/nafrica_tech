@@ -475,7 +475,7 @@ footer {
 }
 
 .form-wrapper {
-  background-color: rgba(224, 250, 255, 0.78);
+  background-color: rgba(247, 255, 255, 0.78);
   padding: 10%;
   display: flex;
   align-items: center;
@@ -533,14 +533,14 @@ footer {
   }
 
   .g-image {
-    border-radius: 10px 10px 10% 10%;
+    border-radius: 10px 10px 0 0;
     height: 100%;
   }
 
   .g-wrapper {
     display: flex;
     flex-direction: column-reverse;
-    width: 95%;
+    width: 90%;
   }
 
   .container {
