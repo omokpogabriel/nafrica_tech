@@ -527,6 +527,24 @@ footer {
   border-radius: 0 10px 10px 0;
 }
 
+@media (max-width: 780px) {
+  .g-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-template-rows: 1fr;
+    width: 95%;
+  }
+
+  .banner {
+    height: 30vh;
+  }
+
+  .container,
+  footer {
+    width: 90%;
+  }
+}
+
 @media (max-width: 440px) {
   .banner {
     background-size: cover;
@@ -534,7 +552,7 @@ footer {
 
   .g-image {
     border-radius: 10px 10px 0 0;
-    height: 100%;
+    height: auto;
   }
 
   .g-wrapper {
