@@ -75,7 +75,11 @@ footer{
 .banner{
     height:40vh;
     width:100%;
+    background-image:url('../../public/img/banner.jpg');
+    background-size:cover;
+    background-origin:border-box;
     background-color: #67a3ff;
+    background-position-y: center;
     position:relative;
 }
 
@@ -442,6 +446,9 @@ footer{
     border-radius: 0 10px 10px 0;
 }
 @media (max-width: 440px){
+    .banner{
+        background-size:cover;
+    }
     .g-image{
        border-radius: 10px 10px 10% 10%;
         height:100%;
