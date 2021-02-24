@@ -52,7 +52,7 @@ class HomeController extends Controller
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
-            'mobile' => ['required', 'integer', new MobileLength()],
+            'mobile' => ['required', 'string', new MobileLength()],
             'country' => ['required', 'string', 'min:3', 'max:50'],
         ]);
         $user = User::where('id',$request->user()->id)

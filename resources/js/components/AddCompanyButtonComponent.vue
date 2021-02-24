@@ -4,8 +4,8 @@
        <section class="company-content">
            <div class="company-wrapper" v-for="companies in user_company" :key="companies.id">
                <div class="company-card-header">
-                   <h3>Company {{_count}}</h3>
-                   <button class="btn-delete" type="button" @click="delete_company(companies.id)"> [delete] </button>
+                   <h3>Company </h3>
+                   <button class="btn-delete" type="button" @click="delete_company(companies.id)" v-text="delete_text">  </button>
                </div>
                <div class="company-card-wrapper">
                    <div class="company-card">
@@ -22,7 +22,7 @@
                    </div>
                </div>
                <div class="card-bottom">
-                   <button class="btn btn-update btn-center" @click="show_update_company(companies)">Update</button>
+                   <button class="btn btn-update btn-center" @click="show_update_company(companies)" v-text="update_text">Update</button>
                </div>
            </div>
            <div class="company-wrapper" v-if="false">
@@ -72,7 +72,7 @@
                        </div>
 
                        <div class="vertical-form-group">
-                           <button role="button" type="submit" class="btn-center btn-update btn"> ADD COMPANY</button>
+                           <button role="button" type="submit" class="btn-center btn-update btn" v-text="add_company_text"> </button>
                        </div>
                    </form>
            </div>
@@ -112,7 +112,7 @@
                    </div>
 
                    <div class="vertical-form-group">
-                       <button role="button" type="submit" class="btn-center btn-update btn"> UPDATE COMPANY</button>
+                       <button role="button" type="submit" class="btn-center btn-update btn" v-text="update_company_text"> UPDATE COMPANY</button>
                    </div>
                </form>
            </div>
@@ -143,6 +143,10 @@
                     company_count:0,
                     to_update:0,
                     user_data: null,
+                    delete_text:'delete',
+                    update_text:'Update',
+                    add_company_text: 'ADD COMPANY',
+                    update_company_text: 'UPDATE COMPANY',
                     csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                     company_form:{
                         company_name:null,
@@ -190,7 +194,9 @@
                 },
                 add_company: function (event){
                     console.log(this.company_form);
+                    this.add_company_text = 'PLEASE WAIT.....'
                     this.addCompanyAxios();
+                    this.add_company_text = 'ADD COMPANY'
                 },
                 reset_model: function(){
                     this.show_form_result();
@@ -235,8 +241,12 @@
                     })
                 },
                 delete_company:function(com_id){
-                    if(confirm("are you sure? "))
-                        this.deleteAxios(com_id)
+                    if(confirm("are you sure? ")){
+                        this.delete_text = "PLEASE WAIT...."
+                            this.deleteAxios(com_id)
+                            this.delete_text = 'delete'
+                    }
+
                 },
                 deleteAxios: function(com_id){
                     axios.delete('/delete_home',{
@@ -253,6 +263,7 @@
                 },
                 update_company: function(){
                     let companyInfo = this.company_form;
+                    this.update_company_text = "PLEASE WAIT..."
                     axios.patch(`/updatecompany/${this.to_update}`,companyInfo)
                         .then(response=>{
                             console.log(response)
@@ -264,10 +275,11 @@
                                 this.user_data = response.data.user_info
                             }
                             this.show_form_result()
-
+                            this.update_company_text = 'Update'
                         })
                         .catch(err=>{
                             console.log(err.response)
+                            this.update_company_text = 'Update'
                             const response = err.response;
                             const data = response.data
                             if(data.message == "The given data was invalid." || response.status ==422){

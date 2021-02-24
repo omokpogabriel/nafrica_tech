@@ -24,9 +24,9 @@
 <div id="app" class="main-container">
     <nav>
         <div class="inner-nav">
-            <div class="nav-brand">
+            <a href="/" class="nav-brand">
                 <img src="{{asset('/img/nafrica_logo_white.png')}}" alt="">
-            </div>
+            </a>
             <div class="nav-bar">
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
