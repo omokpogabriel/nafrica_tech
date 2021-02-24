@@ -277,6 +277,7 @@ footer{
     font-weight:600;
     border-radius:5px;
     cursor:pointer;
+    font-size:1rem;
 }
 .btn_add_company:hover{
     background-color:white;
@@ -405,10 +406,7 @@ footer{
         transition-duration: 200ms;
     }
     .search-dropdown{
-        //border-left-width: 0;
-
         padding:2px 5px;
-        //border-right-color: transparent;
     }
 }
 
@@ -462,6 +460,10 @@ footer{
     }
 }
 @media (max-width: 440px){
+    .search-dropdown{
+        margin-left:5px;
+        margin-right:5px;
+    }
     .banner{
         background-size:cover;
     }
@@ -509,5 +511,10 @@ footer{
     }
 }
 
-
+.btn_back{
+    color:#4b9cff;
+    font-weight:600;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
 

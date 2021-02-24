@@ -35,6 +35,6 @@ class MobileLength implements Rule
      */
     public function message()
     {
-        return ':attribute must be greater tha 8 but less than 15';
+        return ':attribute must be greater than 8 but less than 15';
     }
 }

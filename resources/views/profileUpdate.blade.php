@@ -2,6 +2,7 @@
     <main class="container">
         <section class="banner"></section>
         <section class="profile-content">
+              <a href="/home" class="btn_back"> < Home</a>
             <div class="company-modal-wrapper bounce">
                 <div class="company-modal-header company-card-header">
                     <h3>UPDATE PROFILE</h3>
