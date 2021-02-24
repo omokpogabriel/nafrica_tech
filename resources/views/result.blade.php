@@ -41,7 +41,7 @@
         </div>
             @empty
             <div class="company-card-header">
-                <h3>no company found</h3>
+                  <h3><a href="/home"> < no company found </a> </h3>
             </div>
         @endforelse
     </section>
