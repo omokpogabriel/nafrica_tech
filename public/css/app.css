@@ -489,13 +489,10 @@ footer {
 
 .g-wrapper {
   margin: auto;
-  display: flex;
-  width: 70%;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 2px #8b9db2;
-  display: grid;
-  grid-template-columns: 2.5fr 3.5fr;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-wrapper {
@@ -533,13 +530,6 @@ footer {
 }
 
 @media (max-width: 780px) {
-  .g-wrapper {
-    display: grid;
-    grid-template-columns: 3fr 3fr;
-    grid-template-rows: 1fr;
-    width: 95%;
-  }
-
   .banner {
     height: 30vh;
   }
@@ -583,7 +573,7 @@ footer {
   .welcome-section {
     position: absolute;
     bottom: 20px;
-    right: 0;
+    left: 0;
     border-radius: 5px;
     align-items: center;
     text-align: center;

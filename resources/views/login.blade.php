@@ -18,12 +18,10 @@
 </head>
 <body>
 <div class="content-wrapper">
-
     <section class="g-wrapper bounce">
-
-        <div class="form-wrapper ">
+        <div class="form-wrapper">
             <img src="{{asset('./img/nafrica.png')}}" alt="" style="margin-bottom:20px;">
-            <form action="{{route('login')}}" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off" >
+            <form action="{{route('login')}}" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
                 @csrf
                 <div class="vertical-form-group">
                     <label for="email" class="reg-label">Email:</label>
@@ -52,8 +50,6 @@
             </div>
 
         </div>
-
-        <img src="{{asset('./img/login_img.jpg')}}" alt="" class="g-image">
     </section>
 </div>
 </body>
