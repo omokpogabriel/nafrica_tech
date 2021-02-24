@@ -25,7 +25,7 @@
     <nav>
         <div class="inner-nav">
             <div class="nav-brand">
-                <h2>NAfrica</h2>
+                <img src="{{asset('/img/nafrica_logo_white.png')}}" alt="">
             </div>
             <div class="nav-bar">
                 <a href="{{ route('logout') }}"

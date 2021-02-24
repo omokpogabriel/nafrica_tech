@@ -64,7 +64,6 @@ footer{
         color: #67a3ff;
         text-decoration-color: white;
         text-decoration-line: underline;
-        text-decoration-width: 5px;
         transition-property: color, text-decoration;
         transition-timing-function: ease-in;
         transition-duration: 200ms;
@@ -213,12 +212,16 @@ footer{
     padding:10px 20px;
     width:100%;
     border-radius:3px;
-    background-color:#67a3ff;
+    background-color:#040606;
     color:white;
     font-size:1rem;
     margin-top:10px;
     border:1px solid transparent;
     cursor:pointer
+}
+.reg-label{
+    color:#040606 !important;
+    font-size: 1.2rem;
 }
 .btn-update:hover, .btn-register:hover{
   background-color:white;
@@ -420,7 +423,9 @@ footer{
     display:grid; grid-template-columns: 2.5fr 3.5fr;grid-template-rows: 1fr;
 }
 .content-wrapper{
-    height:100vh;display:flex;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
     align-items: center;justify-content: center;
     background-color:rgba(75,156,255,0.2);
 }
@@ -466,6 +471,7 @@ footer{
     .g-image{
        border-radius: 10px 10px 0 0;
         height:auto;
+        display:none;
     }
     .g-wrapper{
         display:flex;
@@ -484,12 +490,12 @@ footer{
     }
     .welcome-section{
         position:absolute;
-        bottom: 0px;
+        bottom: 20px;
         right:0;
-        left:0;
         border-radius: 5px;
         align-items: center;
         text-align: center;
+        width:max-content;
     }
     .profile-wrapper, .company-wrapper{
         width:98%;

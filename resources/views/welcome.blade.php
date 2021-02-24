@@ -21,10 +21,11 @@
             <section class="g-wrapper bounce">
 
                 <div class="form-wrapper ">
+                    <img src="{{asset('./img/nafrica.png')}}" alt="" style="margin-bottom:20px;">
                     <form action="{{route('register')}}" method="POST" enctype="application/x-www-form-urlencoded"autocomplete="off" >
                         @csrf
                         <div class="vertical-form-group">
-                            <label for="username">Name:</label>
+                            <label for="username" class="reg-label">Name:</label>
                             <input type="text" name="name"
                                    id="username"
                                    value="{{old('name')}}"
@@ -36,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="vertical-form-group">
-                            <label for="email">Email:</label>
+                            <label for="email" class="reg-label">Email:</label>
                             <input type="email" name="email" id="email" value="{{old('email')}}"  class="form-control">
                             @error('email')
                             <span class="is-invalid" role="alert">
@@ -45,7 +46,7 @@
                             @enderror
                         </div>
                         <div class="vertical-form-group">
-                            <label for="password">password:</label>
+                            <label for="password" class="reg-label">password:</label>
                             <input type="password" name="password" id="password"  class="form-control">
                             @error('password')
                             <span class="is-invalid" role="alert">
@@ -54,7 +55,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="password_confirm">confirm password:</label>
+                            <label for="password_confirm" class="reg-label">confirm password:</label>
                             <input type="password" name="password_confirmation" id="password_confirm" class="form-control">
                         </div>
 

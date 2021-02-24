@@ -22,10 +22,11 @@
     <section class="g-wrapper bounce">
 
         <div class="form-wrapper ">
+            <img src="{{asset('./img/nafrica.png')}}" alt="" style="margin-bottom:20px;">
             <form action="{{route('login')}}" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off" >
                 @csrf
                 <div class="vertical-form-group">
-                    <label for="email">Email:</label>
+                    <label for="email" class="reg-label">Email:</label>
                     <input type="email" name="email" id="email" value="{{old('email')}}" class="form-control">
                     @error('email')
                     <span class="is-invalid" role="alert">
@@ -34,7 +35,7 @@
                     @enderror
                 </div>
                 <div class="vertical-form-group">
-                    <label for="password">Password:</label>
+                    <label for="password" class="reg-label">Password:</label>
                     <input type="password" name="password" id="password" class="form-control">
                     @error('password')
                     <span class="is-invalid" role="alert">
