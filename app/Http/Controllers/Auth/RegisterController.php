@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Rules\MobileLength;
 use App\Rules\StandardPassword;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,6 +26,8 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+
 
     /**
      * Where to redirect users after registration.
@@ -53,8 +56,6 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'mobile' => ['required', 'integer', new MobileLength()],
-            'country' => ['required', 'string', 'min:3', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required','min:6','max:12', 'confirmed', new StandardPassword()],
         ]);
@@ -71,8 +72,6 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'mobile' => $data['mobile'],
-            'country' => $data['country'],
             'password' => Hash::make($data['password']),
         ]);
     }

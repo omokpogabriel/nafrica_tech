@@ -27,9 +27,23 @@ a {
 nav {
   width: 100%;
   display: grid;
-  background-color: #6cb2eb;
+  background-color: #4b9cff;
   padding: 10px 0;
   align-content: center;
+}
+
+footer {
+  width: 80%;
+  display: grid;
+  background-color: #4b9cff;
+  padding: 10px 0;
+  align-content: center;
+  color: white;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: auto;
 }
 
 .inner-nav {
@@ -48,7 +62,7 @@ nav {
 
 .nav-bar {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-auto-flow: column;
   grid-gap: 10px;
 }
@@ -87,9 +101,8 @@ nav {
   border-radius: 5px;
   align-items: center;
   margin-left: 50px;
-}
-
-.welcome-section {
+  color: #5982d1;
+  text-transform: capitalize;
   background-color: #f6f6f6;
   padding: 10px 20px;
   box-shadow: 0 0 5px 0 gray;
@@ -98,9 +111,11 @@ nav {
 .search-wrapper {
   width: 100%;
   background-color: #e2e2e2;
-  padding: 15px 20px;
+  padding: 10px 20px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .profile-content {
@@ -217,7 +232,20 @@ nav {
   border-radius: 3px;
 }
 
-.btn-update:hover {
+.btn-register {
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #67a3ff;
+  color: white;
+  font-size: 1rem;
+  margin-top: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-update:hover,
+.btn-register:hover {
   background-color: white;
   color: #67a3ff;
   border: 1px solid #67a3ff;
@@ -373,7 +401,7 @@ nav {
   grid-template-rows: -webkit-max-content;
   grid-template-rows: max-content;
   grid-row-gap: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .vertical-form-group label {
@@ -408,6 +436,146 @@ nav {
   margin-bottom: 20px;
   width: 100%;
   text-align: center;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-form .search-form-control {
+  padding: 3px 5px;
+}
+
+.search-form .btn-search {
+  background-color: #67a3ff;
+  color: white;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  padding: 2px 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form .btn-search:hover {
+  color: #67a3ff;
+  background-color: white;
+  border: 1px solid #67a3ff;
+  transition-property: color, background-color;
+  transition-timing-function: ease-in;
+  transition-duration: 200ms;
+}
+
+.search-form .search-dropdown {
+  padding: 2px 5px;
+}
+
+.form-wrapper {
+  background-color: rgba(224, 250, 255, 0.78);
+  padding: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.g-wrapper {
+  margin: auto;
+  display: flex;
+  width: 70%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px #8b9db2;
+  display: grid;
+  grid-template-columns: 2.5fr 3.5fr;
+  grid-template-rows: 1fr;
+}
+
+.content-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(75, 156, 255, 0.2);
+}
+
+.form-advice {
+  margin-top: 20px;
+  font-size: 1rem;
+  width: 100%;
+  display: flex;
+  color: #0a1b38;
+  font-weight: lighter;
+  align-items: center;
+}
+
+.advice-link {
+  color: #236eff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-left: 3px;
+}
+
+.g-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  border-radius: 0 10px 10px 0;
+}
+
+@media (max-width: 440px) {
+  .g-image {
+    border-radius: 10px 10px 10% 10%;
+    height: 100%;
+  }
+
+  .g-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 95%;
+  }
+
+  .container {
+    width: 99%;
+    margin: auto;
+  }
+
+  .banner {
+    height: 35vh;
+  }
+
+  .inner-nav {
+    width: 95%;
+  }
+
+  .welcome-section {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-wrapper,
+  .company-wrapper {
+    width: 98%;
+  }
+
+  .company-modal-wrapper,
+  .result-wrapper,
+  .update-company-modal-wrapper {
+    width: 98%;
+  }
+
+  .form-wrapper {
+    padding: 20px;
+  }
+
+  footer {
+    width: 100%;
+  }
 }
 
 

@@ -22,11 +22,10 @@ Route::get('/', function () {
 
 //Auth::routes();
 
-Route::POST('/register',[RegisterController::class,'create'])->name('register');
+Route::POST('/register',[RegisterController::class,'register'])->name('register');
 Route::POST('/login',[LoginController::class,'login'])->name('login');
-Route::GET('/login',function(){
-    return view('welcome');
-});
+Route::view('/login','login');
+
 
 Route::POST('/logout',[LoginController::class,'logout'])->name('logout');
 
@@ -34,6 +33,7 @@ Route::POST('/logout',[LoginController::class,'logout'])->name('logout');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::POST('/addcompany', [CompanyController::class, 'store']);
+    Route::POST('/search', [CompanyController::class, 'getresult']);
     Route::PATCH('/updatecompany/{id}', [CompanyController::class, 'update']);
     Route::GET('/update', [HomeController::class, 'show']);
     Route::POST('/update', [HomeController::class, 'update']);

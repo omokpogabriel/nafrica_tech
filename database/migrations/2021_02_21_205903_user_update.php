@@ -15,10 +15,10 @@ class UserUpdate extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('mobile',15)
-                ->after('password')->nullable(false);
+                ->after('password')->nullable(true);
             $table->text('country')
                 ->after('mobile')
-                ->nullable(false);
+                ->nullable(true);
 
         });
     }

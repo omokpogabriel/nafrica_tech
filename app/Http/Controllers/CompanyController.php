@@ -19,6 +19,32 @@ class CompanyController extends Controller
         //
     }
 
+    public function getresult(Request $request)
+    {
+        $this->validate($request, [
+            'search' => ['required','string','min:3'],
+            'search_type' => ['required','string','min:3'],
+        ]);
+        $search_term = $request->search;
+        //->where('company_name','LIKE',"%{$search_term}%")->get();
+        if($request->search_type =="owner"){
+            $company = Company::where(['user_id'=>Auth::user()->id])
+                ->where(function($query) use ($search_term){
+                    $query->where('company_name','LIKE',"%{$search_term}%")
+
+                            ->orWhere('email','LIKE',"%{$search_term}%");
+                })->get();
+        }else{
+            $company = Company::where(function($query) use ($request){
+                    return $query->
+                    where('company_name','LIKE',"%{$request->search}%")
+                        ->orWhere('email','LIKE',"%{$request->search}%");
+                })->get();
+        }
+
+        return view('result')->with(['company'=>$company]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

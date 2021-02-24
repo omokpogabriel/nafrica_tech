@@ -259,6 +259,7 @@
                             this.form_result = response.data.message;
                             this.company_active = !this.modal_active
                             this.form_response_status = response.data.status;
+                            this.update_company_active = false;
                             if(this.form_response_status != false){
                                 this.user_data = response.data.user_info
                             }

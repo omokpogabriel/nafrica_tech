@@ -2105,6 +2105,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.form_result = response.data.message;
         _this3.company_active = !_this3.modal_active;
         _this3.form_response_status = response.data.status;
+        _this3.update_company_active = false;
 
         if (_this3.form_response_status != false) {
           _this3.user_data = response.data.user_info;
